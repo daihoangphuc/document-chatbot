@@ -1,0 +1,27 @@
+name: Fine-tune on Kaggle
+
+on:
+  push:
+    paths:
+      - 'uploads/**'
+
+jobs:
+  run-kaggle-notebook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install Kaggle API
+        run: pip install kaggle
+      - name: Set Kaggle API credentials
+        run: |
+          mkdir -p ~/.kaggle
+          echo '{"username":"nguyenhoangphuc2410","key":"257fad5c86bec0bba4bb61f502846b9c"}' > ~/.kaggle/kaggle.json
+          chmod 600 ~/.kaggle/kaggle.json
+      - name: Run Kaggle Notebook
+        run: |
+          kaggle kernels push -p notebook/fine_tune.ipynb
