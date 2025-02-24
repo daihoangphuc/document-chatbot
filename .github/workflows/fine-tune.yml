@@ -24,4 +24,4 @@ jobs:
           chmod 600 ~/.kaggle/kaggle.json
       - name: Run Kaggle Notebook
         run: |
-          kaggle kernels push -p notebook/fine_tune.ipynb
+          kaggle kernels push -p notebook
