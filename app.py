@@ -6,7 +6,7 @@ from github import Github
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 app.config['UPLOAD_FOLDER'] = 'uploads/'
-GITHUB_TOKEN = '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'  # Thay bằng GitHub PAT
+GITHUB_TOKEN = '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'  # Thay bằng GitHub PAT
 REPO_NAME = 'daihoangphuc/document-chatbot'   # Thay bằng repo của bạn
 
 # Khởi tạo GitHub API
